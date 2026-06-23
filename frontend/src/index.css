@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563EB;
+  --color-secondary: #14B8A6;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  
+  --color-gov-bg: #F8FAFC;
+  --color-gov-card: #FFFFFF;
+  --color-gov-text: #0F172A;
+  --color-gov-subtext: #64748B;
+  --color-gov-border: #E2E8F0;
+
+  --font-sans: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+}
+
+:root {
+  --font-size-multiplier: 1;
+  font-size: calc(16px * var(--font-size-multiplier));
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  transition: font-size 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Accessibility: Font Size Multipliers */
+.font-size-normal {
+  --font-size-multiplier: 1;
+}
+
+.font-size-large {
+  --font-size-multiplier: 1.15;
+}
+
+.font-size-xlarge {
+  --font-size-multiplier: 1.3;
+}
+
+/* Base styling based on theme variables */
+body {
+  background-color: var(--color-gov-bg);
+  color: var(--color-gov-text);
+}
+
+/* Dark Mode Theme Overrides */
+.dark {
+  --color-gov-bg: #0F172A;
+  --color-gov-card: #1E293B;
+  --color-gov-text: #F8FAFC;
+  --color-gov-subtext: #94A3B8;
+  --color-gov-border: #334155;
+  --color-primary: #3B82F6;
+  --color-secondary: #2DD4BF;
+}
+
+/* High Contrast Mode Theme Overrides (For visually impaired citizens) */
+.theme-high-contrast {
+  --color-gov-bg: #000000 !important;
+  --color-gov-card: #000000 !important;
+  --color-gov-text: #FFFFFF !important;
+  --color-gov-subtext: #FFFF00 !important; /* Bright Yellow text for subtext */
+  --color-gov-border: #FFFFFF !important;
+  --color-primary: #FFFF00 !important; /* Yellow for primary items */
+  --color-secondary: #00FFFF !important; /* Cyan for secondary items */
+  --color-success: #00FF00 !important; /* Pure Green */
+  --color-warning: #FFFF00 !important; /* Pure Yellow */
+  --color-danger: #FF0000 !important; /* Pure Red */
+}
+
+/* High Contrast Adjustments */
+.theme-high-contrast * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background-image: none !important;
+}
+
+.theme-high-contrast button,
+.theme-high-contrast input,
+.theme-high-contrast select,
+.theme-high-contrast textarea {
+  border: 2px solid #FFFFFF !important;
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-radius: 4px !important;
+}
+
+.theme-high-contrast button:hover {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.theme-high-contrast .verified-badge {
+  border: 2px solid #00FF00 !important;
+  color: #00FF00 !important;
+  background: black !important;
+}
+
+.theme-high-contrast .warning-badge {
+  border: 2px solid #FFFF00 !important;
+  color: #FFFF00 !important;
+  background: black !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Welcoming Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Progress circular animation */
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Modern Card Hover Effects */
+.welfare-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.welfare-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.dark .welfare-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus Indicators for Keyboard Users */
+*:focus-visible {
+  outline: 3px solid #2563EB;
+  outline-offset: 2px;
+}
+
+.theme-high-contrast *:focus-visible {
+  outline: 3px solid #FFFF00;
+  outline-offset: 4px;
+}
+
+/* WhatsApp Web background pattern */
+.whatsapp-bg {
+  background-color: #F7F5F2;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.dark .whatsapp-bg {
+  background-color: #0F172A;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.theme-high-contrast .whatsapp-bg {
+  background-color: #000000 !important;
+  background-image: none !important;
+}

@@ -1,0 +1,30 @@
+# Local environment variables
+.env
+.env.local
+.env.*
+!.env.example
+
+# Python dependencies & virtualenvs
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.adk/
+.pytest_cache/
+.ruff_cache/
+.google-agents-cli/
+
+# Node.js dependencies
+node_modules/
+dist/
+dist-ssr/
+
+# IDE / System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

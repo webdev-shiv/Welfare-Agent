@@ -1,0 +1,46 @@
+[0:00 - HOOK]
+Hello everyone. For many citizens, finding out which government welfare programs they qualify for is a confusing and exhausting process. Today, I am excited to show you how the Welfare Agent simplifies the complex landscape of public benefits, making sure no eligible family is left behind.
+
+[0:20 - WHAT IT IS]
+Welfare Agent is an intelligent, multi-agent operating system designed specifically to bridge the information gap in public services. It helps citizens discover schemes, calculate eligibility, verify documents, and detect scam websites—all through an intuitive, accessible chat assistant.
+
+[0:40 - SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see on the banner here, the Welfare Agent is built on three core pillars: automation, security, and intelligence, providing a unified platform to assist citizens in accessing critical social support.
+(pause)
+
+[1:00 - ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's walk through the architecture diagram to see how it works under the hood.
+First, when a user sends a query or demographic details, the input passes through the Security Checkpoint node, which scrubs sensitive PII and filters out malicious injections.
+(pause)
+Once verified, the input reaches our root_agent Coordinator. This orchestrator dynamically delegates queries to our specialized sub-agents.
+For instance, the user_profile_agent formats citizen profiles.
+The scheme_discovery_agent searches our localized schema databases.
+The eligibility_evaluator_agent matches profiles against specific rules and calculates score cards.
+The scheme_comparison_agent compares financial benefits side-by-side.
+The document_verifier_agent checks uploaded certificates for completeness.
+The fraud_detection_agent scans suspicious links and alert messages.
+The life_event_prediction_agent predicts upcoming benefit milestones.
+And finally, the welfare_score_agent tracks the citizen's claimed versus potential financial aid.
+These agents pull from a SQLite database proxy and interface with external resources via our MCP Server.
+Also, when connecting with NGOs for direct assistance, the workflow utilizes a Human-in-the-Loop review process where NGO representatives approve requests from their dashboard.
+
+[2:00 - LIVE DEMO]
+(switch to playground at localhost:18081)
+Now, let's look at three live examples of how this agent runs.
+(pause)
+First, let's test scheme discovery by typing: "Find scholarships available for B.Tech students."
+Notice how the coordinator routes the message to the scheme_discovery_agent, which calls the search_all_schemes tool, querying the local database to instantly print matching schemes like the Central Sector Scholarship.
+(pause)
+Next, let's try a complex eligibility check: "Am I eligible for the PM Vidya Scheme? My profile: Age 20, General category, from Delhi, annual family income is 1.5 Lakhs, occupation is student."
+The orchestrator immediately forwards this to the eligibility_evaluator_agent. It triggers check_scheme_eligibility to test our criteria, showing us a neat checklist in the UI with a 92% eligibility score.
+(pause)
+Finally, let's run a security scam check: "Check if this link is safe: http://pm-scholarship-free-laptop.com"
+The query is sent to the fraud_detection_agent, which runs detect_fraud_alerts. It notes that the domain is not a gov.in or nic.in site, and displays a danger warning on the screen, prompting us to check official government guidelines.
+
+[3:00 - SECURITY & MCP]
+To make sure our agent remains a trusted resource, our Security Checkpoint provides automated compliance, auditing database calls and blocking prompt injection. Meanwhile, our MCP Server tools enable the agent to query real-time scheme registries and perform live pension estimations.
+
+[3:30 - IMPACT / CLOSE]
+By automating these processes, the Welfare Agent reduces administrative barriers for millions of citizens, helps local NGOs process verified cases faster, and ensures public benefits go to those who need them most. Thank you!
