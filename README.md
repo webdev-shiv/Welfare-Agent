@@ -19,7 +19,8 @@ This repository is split into two main sections:
    - Handles advanced scheme search indexing, multi-criteria eligibility calculations, security checks, and fraud scoring.
 
 ---
-
+Workflow :
+<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/fa57efbe-c28a-4b56-b00a-2034f447705a" />
 ## 🚀 Quick Start Guide
 
 Follow these steps to run the complete stack locally.
